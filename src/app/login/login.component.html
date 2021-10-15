@@ -1,0 +1,39 @@
+<div class="bg-img" alt="">
+
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="card" style="width: 30rem;">
+                <div class="card-body">
+                    <form class="text-center" method="post">
+
+                        <div class="form-group has-feedback">
+                            <img src="assets/logo-bea.png" width="120" height="60" alt="">
+                        </div>
+
+                        <p></p>
+
+                        <div class="form-group has-feedback">
+                            <input [(ngModel)]="authenticationRequest.username" type="text" class="input-field"
+                                name="username" id="username" placeholder="Username" autofocus required>
+                        </div>
+
+                        <p></p>
+
+                        <div class="form-group has-feedback">
+                            <input [(ngModel)]="authenticationRequest.password" type="password" class="input-field"
+                                name="username" id="password" placeholder="Password" required>
+                        </div>
+
+                        <p></p>
+
+                        <div class="form-group has-feedback">
+                            <button (click)='login()' class="btn" mdbBtn color="info" block="true" type="submit"
+                                value="login">Iniciar sesión</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
