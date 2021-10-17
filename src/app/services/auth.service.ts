@@ -12,13 +12,11 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private authenticationResponse: AuthenticationResponse;
   private authenticationRequest: AuthenticationRequest;
   private admin!: Admin;
   private token!: string;
 
   constructor(private http: HttpClient) {
-    this.authenticationResponse = new AuthenticationResponse();
     this.authenticationRequest = new AuthenticationRequest();
   }
 
@@ -43,10 +41,10 @@ export class AuthService {
     }
   }
 
-  login(authenticationRequest: AuthenticationRequest): Observable<AuthenticationResponse> {
+  login(authenticationRequest: AuthenticationRequest): Observable<any> {
     this.authenticationRequest.username = authenticationRequest.username;
     this.authenticationRequest.password = sha256(authenticationRequest.password);
-    return this.http.post<AuthenticationResponse>(environment.url_backend, this.authenticationRequest);
+    return this.http.post<AuthenticationResponse>(environment.url_backend + "auth/authenticate", this.authenticationRequest);
   }
 
   saveToken(accessToken: string): void {
@@ -60,6 +58,23 @@ export class AuthService {
     } else {
       return null;
     }
+  }
+
+  isAuthenticated(): boolean {
+    let payload = this.getDataToken(this.token);
+    if (payload != null && payload.sub && payload.sub.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  logout(): void {
+    this.token = '';
+    this.admin = new Admin();
+    sessionStorage.clear();
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('admin');
   }
 
 
