@@ -50,6 +50,7 @@ export class AuthService {
   saveToken(accessToken: string): void {
     this.token = accessToken;
     sessionStorage.setItem('token', accessToken);
+    console.log(sessionStorage)
   }
 
   getDataToken(accessToken: string): any {

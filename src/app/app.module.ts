@@ -7,18 +7,25 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
+import { HeaderComponent } from './header/header.component';
+import { UsersComponent } from './pages/users/users.component';
+import { JobsComponent } from './pages/jobs/jobs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent },
+  { path: 'users', component: UsersComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    HeaderComponent,
+    UsersComponent,
+    JobsComponent
   ],
   imports: [
     BrowserModule,

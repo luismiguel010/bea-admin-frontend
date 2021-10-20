@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.authService.login(this.authenticationRequest).subscribe(response => {
-      this.authService.saveToken(response.access_token);
+      this.authService.saveToken(response.jwt);
       this.router.navigate(['/main']);
     }, err => {
       if (err.status == 400 || err.status == 403) {
