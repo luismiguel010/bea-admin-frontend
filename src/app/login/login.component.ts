@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     if (this.authService.isAuthenticated()) {
       swal.fire('Login', 'Hola, ya estás autenticado', 'info');
       this.router.navigate(['/main']);
-      console.log("Enter auth service true");
     }
   }
 

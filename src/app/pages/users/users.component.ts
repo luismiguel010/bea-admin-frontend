@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
 
   users: User[] = [];
   cv: Cv = new Cv();
-
+  filterUser = '';
 
   constructor(private userService: UsersService, private cvService: CvService, private blobService: BlobService) { }
 
