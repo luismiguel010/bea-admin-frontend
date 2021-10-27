@@ -35,4 +35,32 @@ export class JobService {
       })
     );
   }
+
+  getAllJobs(): Observable<Job[]> {
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    let token = this.authService.getToken();
+    if (token != null) {
+      httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
+    }
+    return this.http.get<Job[]>(environment.url_backend + 'job/getAll', { headers: httpHeaders }).pipe(
+      catchError(e => {
+        this.isNotAuthorized(e);
+        return throwError(e);
+      })
+    );
+  }
+
+  updateJob(job: Job) {
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    let token = this.authService.getToken();
+    if (token != null) {
+      httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
+    }
+    return this.http.put(environment.url_backend + 'job/update', job, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        this.isNotAuthorized(e);
+        return throwError(e);
+      })
+    );
+  }
 }
