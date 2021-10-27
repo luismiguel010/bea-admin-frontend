@@ -15,29 +15,32 @@
         </div>
         <div class="row">
             <!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let user of users | filterUsers:filterUser">
+            <div class="col-xs-12 col-sm-6 col-md-4"
+                *ngFor="let userWithJobs of usersWithJobs | filterUsers:filterUser">
                 <div class="image-flip">
                     <div class="mainflip flip-0">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4 class="card-title">{{user.names}}</h4>
-                                    <h4 class="card-title">{{user.lastnames}}</h4>
-                                    <p class="card-text">{{user.identificationCard}}</p>
+                                    <h4 class="card-title">{{userWithJobs.names}}</h4>
+                                    <h4 class="card-title">{{userWithJobs.lastnames}}</h4>
+                                    <p class="card-text">{{userWithJobs.identificationCard}}</p>
+                                    <p class="card-text" *ngFor="let job of userWithJobs.jobName">{{job}}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">{{user.phone}}</p>
-                                    <p class="card-text">{{user.email}}</p>
-                                    <p class="card-text">{{user.address}}</p>
-                                    <p class="card-text">{{user.academicProfile}}</p>
-                                    <p class="card-text">{{user.identificationCard}}</p>
+                                    <p class="card-text">{{userWithJobs.phone}}</p>
+                                    <p class="card-text">{{userWithJobs.email}}</p>
+                                    <p class="card-text">{{userWithJobs.address}}</p>
+                                    <p class="card-text">{{userWithJobs.academicProfile}}</p>
+                                    <p class="card-text">{{userWithJobs.identificationCard}}</p>
                                     <div style="text-align:center">
                                         <button type="button" class="btn btn-primary"
-                                            (click)=getCvByIdUser(user.idUser)>Descargar hoja de vida</button>
+                                            (click)=downloadCvByIdUser(userWithJobs.idUser)>Descargar hoja de
+                                            vida</button>
                                     </div>
                                 </div>
                             </div>
