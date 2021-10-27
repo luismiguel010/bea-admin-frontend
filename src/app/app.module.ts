@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { UsersComponent } from './pages/users/users.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { JobModalComponent } from './modals/job-modal/job-modal.component';
+import { JobCreateModalComponent } from './modals/job-create-modal/job-create-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
     JobsComponent,
     FilterUserPipe,
     JobModalComponent,
+    JobCreateModalComponent,
   ],
   imports: [
     BrowserModule,

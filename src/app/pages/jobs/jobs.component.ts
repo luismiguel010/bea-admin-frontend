@@ -1,3 +1,4 @@
+import { JobCreateModalComponent } from './../../modals/job-create-modal/job-create-modal.component';
 import { JobService } from './../../services/job.service';
 import { Component, OnInit } from '@angular/core';
 import { Job } from 'src/app/models/Job';
@@ -21,6 +22,10 @@ export class JobsComponent implements OnInit {
     this.modalRef = this.modalService.open(JobModalComponent, {
       data: { job }
     });
+  }
+
+  openModalCreateJob() {
+    this.modalRef = this.modalService.open(JobCreateModalComponent);
   }
 
   ngOnInit(): void {

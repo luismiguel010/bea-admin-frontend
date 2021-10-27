@@ -63,4 +63,18 @@ export class JobService {
       })
     );
   }
+
+  createJob(job: Job) {
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    let token = this.authService.getToken();
+    if (token != null) {
+      httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
+    }
+    return this.http.post(environment.url_backend + 'job/save', job, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        this.isNotAuthorized(e);
+        return throwError(e);
+      })
+    );
+  }
 }

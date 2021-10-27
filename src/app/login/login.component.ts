@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
       swal.fire('Login', 'Hola, ya estás autenticado', 'info');
-      this.router.navigate(['/main']);
+      this.router.navigate(['/jobs']);
     }
   }
 
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.authenticationRequest).subscribe(response => {
       this.authService.saveToken(response.jwt);
-      this.router.navigate(['/main']);
+      this.router.navigate(['/jobs']);
     }, err => {
       if (err.status == 400 || err.status == 403) {
         swal.fire('Error login', 'Correo o contraseña incorrectos', 'error');
