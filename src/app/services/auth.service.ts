@@ -74,7 +74,6 @@ export class AuthService {
     this.admin = new Admin();
     sessionStorage.clear();
     sessionStorage.removeItem('token');
-    sessionStorage.removeItem('admin');
   }
 
 

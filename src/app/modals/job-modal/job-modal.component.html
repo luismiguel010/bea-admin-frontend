@@ -17,6 +17,14 @@
                     aria-describedby="basic-addon1" [(ngModel)]="job.description" name="description">
             </div>
 
+            <div class="input-group mb-3">
+                <select class="form-select" placeholder="Estado" aria-label="Default select example"
+                    aria-describedby="basic-addon1" [(ngModel)]="job.state" name="state">
+                    <option value=true>Activar</option>
+                    <option value=false>Desactivar</option>
+                </select>
+            </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)=modalRef.close()>
                     Cerrar

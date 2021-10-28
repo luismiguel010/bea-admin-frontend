@@ -12,15 +12,19 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
+                        <th scope="col">Estado</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let job of jobs">
                     <tr>
                         <td>{{job.name}}</td>
                         <td>{{job.description}}</td>
-                        <div style="text-align:center">
-                            <button type="button" class="btn btn-primary" (click)=openModal(job)>Editar</button>
-                        </div>
+                        <td>{{stateSpanish(job.state)}}</td>
+                        <td>
+                            <div style="text-align:center">
+                                <button type="button" class="btn btn-edit" (click)=openModal(job)>Editar</button>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

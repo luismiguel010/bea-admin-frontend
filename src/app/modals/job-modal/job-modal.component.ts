@@ -38,10 +38,21 @@ export class JobModalComponent implements OnInit {
     this.jobService.updateJob(this.job)
       .subscribe(() => {
         swal.fire('Actualizado', 'Oferta laboral actualizada con éxito', 'success')
+        this.refresh();
       },
         (error) => {
           swal.fire('Error', 'Error actualizando oferta laboral', 'error')
         })
   }
+
+  stateSpanish(state: boolean): string {
+    if (state) {
+      return "Activar"
+    } else {
+      return "Desactivar"
+    }
+  }
+
+
 
 }
