@@ -24,7 +24,7 @@
                                 <div class="card-body text-center">
                                     <h4 class="card-title">{{userWithJobs.names}}</h4>
                                     <h4 class="card-title">{{userWithJobs.lastnames}}</h4>
-                                    <p class="card-text">{{userWithJobs.identificationCard}}</p>
+                                    <p class="card-text">Cédula: {{userWithJobs.identificationCard}}</p>
                                     <p class="card-text" *ngFor="let job of userWithJobs.jobName">{{job}}</p>
                                 </div>
                             </div>
@@ -32,11 +32,11 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">{{userWithJobs.phone}}</p>
-                                    <p class="card-text">{{userWithJobs.email}}</p>
-                                    <p class="card-text">{{userWithJobs.address}}</p>
-                                    <p class="card-text">{{userWithJobs.academicProfile}}</p>
-                                    <p class="card-text">{{userWithJobs.identificationCard}}</p>
+                                    <p class="card-text">Celular: {{userWithJobs.phone}}</p>
+                                    <p class="card-text">Email: {{userWithJobs.email}}</p>
+                                    <p class="card-text">Dirección: {{userWithJobs.address}}</p>
+                                    <p class="card-text">Nivel académico: {{userWithJobs.academicProfile}}</p>
+                                    <p class="card-text">Cédula: {{userWithJobs.identificationCard}}</p>
                                     <div style="text-align:center">
                                         <button type="button" class="btn btn-primary"
                                             (click)=downloadCvByIdUser(userWithJobs.idUser)>Descargar hoja de
