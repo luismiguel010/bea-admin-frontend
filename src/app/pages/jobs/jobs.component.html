@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody *ngFor="let job of jobs">
-                    <tr>
+                    <tr *ngIf="job.name !='Otros'">
                         <td>{{job.name}}</td>
                         <td>{{job.description}}</td>
                         <td>{{stateSpanish(job.state)}}</td>

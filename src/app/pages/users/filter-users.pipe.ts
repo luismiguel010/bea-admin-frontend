@@ -10,7 +10,7 @@ export class FilterUserPipe implements PipeTransform {
             if (userWithJobs.identificationCard.toLowerCase().indexOf(arg.toLowerCase()) > -1 || userWithJobs.names.toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
                 userWithJobs.lastnames.toLowerCase().indexOf(arg.toLowerCase()) > -1 || String(userWithJobs.phone).toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
                 userWithJobs.address.toLowerCase().indexOf(arg.toLowerCase()) > -1 || userWithJobs.email.toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
-                userWithJobs.academicProfile.toLowerCase().indexOf(arg.toLowerCase()) > -1 || userWithJobs.jobName[0].toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                userWithJobs.academicProfile.toLowerCase().indexOf(arg.toLowerCase()) > -1 || userWithJobs.profession.toLowerCase().indexOf(arg.toLowerCase()) > -1 || userWithJobs.jobName[0].toLowerCase().indexOf(arg.toLowerCase()) > -1) {
                 resultUsers.push(userWithJobs);
             };
         };

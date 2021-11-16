@@ -8,4 +8,5 @@ export class UserWithJobs {
     email!: string;
     academicProfile!: string;
     jobName!: string[];
+    profession!: string;
 }

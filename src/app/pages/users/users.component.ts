@@ -41,6 +41,7 @@ export class UsersComponent implements OnInit {
       _userWithJobs.email = user.email;
       _userWithJobs.address = user.address;
       _userWithJobs.academicProfile = user.academicProfile;
+      _userWithJobs.profession = user.profession;
       _userWithJobs.phone = user.phone;
       _userWithJobs.jobName = [];
       this.cvService.getCvByIdUser(user.idUser)

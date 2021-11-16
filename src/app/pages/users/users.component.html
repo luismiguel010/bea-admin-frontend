@@ -25,7 +25,9 @@
                                     <h4 class="card-title">{{userWithJobs.names}}</h4>
                                     <h4 class="card-title">{{userWithJobs.lastnames}}</h4>
                                     <p class="card-text">Cédula: {{userWithJobs.identificationCard}}</p>
-                                    <p class="card-text" *ngFor="let job of userWithJobs.jobName">{{job}}</p>
+                                    <p class="card-text">Profesión: {{userWithJobs.profession}}</p>
+                                    <p class="card-text" *ngFor="let job of userWithJobs.jobName">Postulado a la oferta:
+                                        {{job}}</p>
                                 </div>
                             </div>
                         </div>

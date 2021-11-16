@@ -7,4 +7,5 @@ export class User {
     address!: string;
     email!: string;
     academicProfile!: string;
+    profession!: string;
 }
