@@ -10,6 +10,8 @@ import { saveAs } from 'file-saver';
 import { UserWithJobs } from 'src/app/models/UserWithJobs';
 import { Job } from 'src/app/models/Job';
 import { Observable, Subject, throwError } from 'rxjs';
+import { NivelAcademico } from 'src/app/enums/nivel-academico';
+import { Professions } from 'src/app/enums/professions';
 
 @Component({
   selector: 'app-users',
@@ -23,12 +25,37 @@ export class UsersComponent implements OnInit {
   job: Job = new Job();
   usersWithJobs: UserWithJobs[] = [];
   filterUser = '';
+  professions: string[] = [];
+  academicProfileList: string[] = [];
+  jobs: Job[] = [];
 
   constructor(private userService: UsersService, private cvService: CvService,
     private blobService: BlobService, private jobService: JobService) { }
 
   ngOnInit(): void {
     this.getAllUsers();
+    this.initAcademicProfileList()
+    this.initProfessionList()
+    this.jobService.getAllJobs()
+      .subscribe(
+        (jobs) => {
+          this.jobs = jobs;
+        },
+        (error) => {
+          swal.fire('Error', 'Error obteniendo lista de empleos', 'error')
+        })
+  }
+
+  initAcademicProfileList() {
+    for (var academicProfile in NivelAcademico) {
+      this.academicProfileList.push(academicProfile)
+    }
+  }
+
+  initProfessionList() {
+    for (var profession in Professions) {
+      this.professions.push(profession)
+    }
   }
 
   mapUserWithJob(users: User[]) {

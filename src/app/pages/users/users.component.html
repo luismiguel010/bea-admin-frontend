@@ -6,13 +6,43 @@
 <!-- Team -->
 <section id="team" class="pb-5">
     <div class="container">
+
         <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Buscar Usuario</span>
+                <span class="input-group-text" id="inputGroup-sizing-sm">Filtrar por nivel académico</span>
             </div>
+            <select class="form-select" aria-label="Default select example" aria-describedby="basic-addon1"
+                [(ngModel)]="filterUser" name="filterAcademicProfile">
+                <option *ngFor="let academicProfile of academicProfileList" value="{{academicProfile}}">
+                    {{academicProfile}}</option>
+            </select>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Filtrar por profesión</span>
+            </div>
+            <select class="form-select" aria-label="Default select example" aria-describedby="basic-addon1"
+                [(ngModel)]="filterUser" name="filterAcademicProfile">
+                <option *ngFor="let profession of professions" value="{{profession}}">{{profession}}</option>
+            </select>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Filtrar por oferta laboral</span>
+            </div>
+            <select class="form-select" aria-label="Default select example" aria-describedby="basic-addon1"
+                [(ngModel)]="filterUser" name="filterAcademicProfile">
+                <option *ngFor="let job of jobs" value="{{job.name}}">{{job.name}}</option>
+            </select>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-sm" name="filterUser" [(ngModel)]="filterUser">
         </div>
+
         <div class="row">
             <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4"
