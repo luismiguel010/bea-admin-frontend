@@ -13,6 +13,12 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Estado</th>
+                        <th scope="col">Fecha de creación</th>
+                        <th scope="col">Fecha de vencimiento</th>
+                        <th scope="col">Salario</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">Categoría</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let job of jobs">
@@ -20,6 +26,12 @@
                         <td>{{job.name}}</td>
                         <td>{{job.description}}</td>
                         <td>{{stateSpanish(job.state)}}</td>
+                        <td>{{job.dateInit}}</td>
+                        <td>{{job.dateFinish}}</td>
+                        <td>{{job.salary}}</td>
+                        <td>{{job.phone}}</td>
+                        <td>{{job.company}}</td>
+                        <td>{{job.category}}</td>
                         <td>
                             <div style="text-align:center">
                                 <button type="button" class="btn btn-edit" (click)=openModal(job)>Editar</button>
