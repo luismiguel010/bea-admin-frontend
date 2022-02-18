@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { Professions } from 'src/app/enums/professions';
 import { Job } from 'src/app/models/Job';
 import { JobService } from 'src/app/services/job.service';
 import swal from 'sweetalert2';
@@ -12,10 +13,17 @@ import swal from 'sweetalert2';
 export class JobModalComponent implements OnInit {
 
   job!: Job;
+  category_array: string[] = new Array();
+  newCategory!: string;
 
   constructor(public modalRef: MdbModalRef<JobModalComponent>, private jobService: JobService) { }
 
   ngOnInit(): void {
+    this.category_array = Object.values(Professions);
+  }
+
+  addCategory(newCategory: string): void {
+    this.category_array.push(newCategory);
   }
 
   close(): void {

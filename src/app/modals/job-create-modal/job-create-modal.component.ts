@@ -54,7 +54,7 @@ export class JobCreateModalComponent implements OnInit {
       this.job.dateInit = new Date()
     }
     if (this.job.dateFinish == null) {
-      let date: Date = new Date()
+      let date: Date = this.job.dateInit
       date.setDate(date.getDate() + 90)
       this.job.dateFinish = date
     }

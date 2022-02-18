@@ -8,13 +8,14 @@
 
         <div class="form-group">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre"
+                <input type="text" class="form-control" placeholder="Nombre (Campo obligatorio)" aria-label="Nombre"
                     aria-describedby="basic-addon1" [(ngModel)]="job.name" name="name">
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Descripción" aria-label="Descripción"
-                    aria-describedby="basic-addon1" [(ngModel)]="job.description" name="description">
+                <input type="text" class="form-control" placeholder="Descripción (Campo obligatorio)"
+                    aria-label="Descripción" aria-describedby="basic-addon1" [(ngModel)]="job.description"
+                    name="description">
             </div>
 
             <div class="input-group mb-3">
@@ -23,6 +24,7 @@
                 </div>
                 <input type="datetime-local" id="dateInit" name="dateInit" placeholder="Fecha de apertura"
                     aria-label="Date Init" aria-describedby="basic-addon1" [(ngModel)]="job.dateInit" name="dateInit">
+                <p class="infoprofession">Sino se especifica, se coloca por defecto la fecha actual.</p>
             </div>
 
             <div class="input-group mb-3">
@@ -32,6 +34,7 @@
                 <input type="datetime-local" id="dateFinish" name="dateFinish" placeholder="Fecha de vencimiento"
                     aria-label="Date Finish" aria-describedby="basic-addon1" [(ngModel)]="job.dateFinish"
                     name="dateFinish">
+                <p class="infoprofession">Sino se especifica, se vence la oferta a los 90 días.</p>
             </div>
 
             <div class="input-group mb-3">
@@ -60,9 +63,9 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control"
-                    placeholder="Otra categoría. Llene este campo en caso de que su elección en la categoría sea Otro."
-                    aria-label="" aria-describedby="basic-addon1" [(ngModel)]="newCategory" name="newCategory">
+                <input type="text" class="form-control" placeholder="Otra categoría." aria-label=""
+                    aria-describedby="basic-addon1" [(ngModel)]="newCategory" name="newCategory">
+                <p class="infoprofession">Llene este campo en caso de que su elección en la profesión sea Otro.</p>
             </div>
 
             <div class="modal-footer">
