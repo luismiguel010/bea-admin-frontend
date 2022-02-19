@@ -48,12 +48,15 @@ export class JobCreateModalComponent implements OnInit {
       swal.fire('Error al crear oferta', 'Campo de categoría vacío', 'error')
     }
     if (this.job.category == 'Otro') {
-      this.job.category = this.newCategory;
-    }
-    if (this.job.dateInit == null) {
-      this.job.dateInit = new Date()
+      if (this.newCategory != null) {
+        this.job.category = this.newCategory;
+      } else {
+        swal.fire('Error al crear oferta', 'Campo de categoría vacío', 'error')
+        return
+      }
     }
     if (this.job.dateFinish == null) {
+      this.job.dateInit = new Date()
       let date: Date = this.job.dateInit
       date.setDate(date.getDate() + 90)
       this.job.dateFinish = date
@@ -69,6 +72,7 @@ export class JobCreateModalComponent implements OnInit {
     }
     this.job.idJob = uuid().toString();
     this.job.state = true;
+    this.job.dateInit = new Date()
     console.log(this.job)
     this.jobService.createJob(this.job)
       .subscribe(() => {

@@ -20,15 +20,6 @@
 
             <div class="input-group mb-3">
                 <div class="col-sm-4">
-                    <label>Fecha de apertura:</label>
-                </div>
-                <input type="datetime-local" id="dateInit" name="dateInit" placeholder="Fecha de apertura"
-                    aria-label="Date Init" aria-describedby="basic-addon1" [(ngModel)]="job.dateInit" name="dateInit">
-                <p class="infoprofession">Sino se especifica, se coloca por defecto la fecha actual.</p>
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="col-sm-4">
                     <label>Fecha de vencimiento:</label>
                 </div>
                 <input type="datetime-local" id="dateFinish" name="dateFinish" placeholder="Fecha de vencimiento"
@@ -38,23 +29,23 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Salario" aria-label="Salario"
+                <input type="text" class="form-control" placeholder="Salario (Opcional)" aria-label="Salario"
                     aria-describedby="basic-addon1" [(ngModel)]="job.salary" name="salary">
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Teléfono" aria-label="Teléfono"
+                <input type="text" class="form-control" placeholder="Teléfono (Opcional)" aria-label="Teléfono"
                     aria-describedby="basic-addon1" [(ngModel)]="job.phone" name="phone">
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Empresa" aria-label="Empresa"
+                <input type="text" class="form-control" placeholder="Empresa (Opcional)" aria-label="Empresa"
                     aria-describedby="basic-addon1" [(ngModel)]="job.company" name="company">
             </div>
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">Categoría</span>
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Categoría (Obligatorio)</span>
                 </div>
                 <select class="form-select" placeholder="Seleccione la categoría" aria-label="Default select example"
                     aria-describedby="basic-addon1" [(ngModel)]="job.category" name="category">
@@ -65,7 +56,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Otra categoría." aria-label=""
                     aria-describedby="basic-addon1" [(ngModel)]="newCategory" name="newCategory">
-                <p class="infoprofession">Llene este campo en caso de que su elección en la profesión sea Otro.</p>
+                <p class="infoprofession">Llene este campo en caso de que su elección en la categoría sea Otro.</p>
             </div>
 
             <div class="modal-footer">

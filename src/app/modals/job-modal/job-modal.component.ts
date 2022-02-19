@@ -43,6 +43,27 @@ export class JobModalComponent implements OnInit {
       swal.fire('Error al actualizar oferta', 'Campo de descripción vacío', 'error')
       return;
     }
+    if (this.job.category == 'Otro') {
+      if (this.newCategory != null) {
+        this.job.category = this.newCategory;
+      } else {
+        swal.fire('Error al actualizar oferta', 'Campo de categoría vacío', 'error')
+        return
+      }
+    }
+    if (this.job.dateFinish == null || this.job.dateFinish.toString.length == 0) {
+      swal.fire('Error al actualizar oferta', 'Especifique fecha de vencimiento', 'error')
+      return
+    }
+    if (this.job.salary == null) {
+      this.job.salary = "No se especifica"
+    }
+    if (this.job.phone == null) {
+      this.job.phone = "No se especifica"
+    }
+    if (this.job.company == null) {
+      this.job.company = "No se especifica"
+    }
     this.jobService.updateJob(this.job)
       .subscribe(() => {
         swal.fire('Actualizado', 'Oferta laboral actualizada con éxito', 'success')
