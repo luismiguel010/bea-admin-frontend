@@ -6,7 +6,7 @@ export class Job {
     dateInit!: Date;
     dateFinish!: Date;
     salary!: string;
-    phone!: string;
+    address!: string;
     company!: string;
     category!: string;
 }

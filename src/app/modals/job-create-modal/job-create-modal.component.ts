@@ -64,8 +64,8 @@ export class JobCreateModalComponent implements OnInit {
     if (this.job.salary == null) {
       this.job.salary = "No se especifica"
     }
-    if (this.job.phone == null) {
-      this.job.phone = "No se especifica"
+    if (this.job.address == null) {
+      this.job.address = "No se especifica"
     }
     if (this.job.company == null) {
       this.job.company = "No se especifica"
