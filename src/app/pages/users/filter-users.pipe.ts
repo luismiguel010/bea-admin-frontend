@@ -1,3 +1,4 @@
+import { UserWithJobs } from './../../models/UserWithJobs';
 import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
@@ -5,7 +6,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class FilterUserPipe implements PipeTransform {
     transform(value: any, arg: any): any {
-        const resultUsers = [];
+        const resultUsers: UserWithJobs[] = [];
         for (const userWithJobs of value) {
             if (userWithJobs.identificationCard.toLowerCase().indexOf(arg.toLowerCase()) > -1 || userWithJobs.names.toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
                 userWithJobs.lastnames.toLowerCase().indexOf(arg.toLowerCase()) > -1 || String(userWithJobs.phone).toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
