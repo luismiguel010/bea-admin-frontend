@@ -25,7 +25,7 @@
                 <input type="datetime-local" id="dateFinish" name="dateFinish" placeholder="Fecha de vencimiento"
                     aria-label="Date Finish" aria-describedby="basic-addon1" [(ngModel)]="job.dateFinish"
                     name="dateFinish">
-                <p class="infoprofession">Sino se especifica, se vence la oferta a los 90 días.</p>
+                <p class="infoprofession">Sino se especifica, se vence la oferta a los {{daysFinishDefault}} días.</p>
             </div>
 
             <div class="input-group mb-3">

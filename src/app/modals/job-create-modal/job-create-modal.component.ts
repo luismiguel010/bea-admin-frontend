@@ -5,6 +5,7 @@ import { JobService } from 'src/app/services/job.service';
 import swal from 'sweetalert2';
 import { v4 as uuid } from 'uuid';
 import { Professions } from 'src/app/enums/professions';
+import { Categorias } from 'src/app/enums/categorias';
 
 @Component({
   selector: 'app-job-create-modal',
@@ -16,11 +17,12 @@ export class JobCreateModalComponent implements OnInit {
   job: Job = new Job();
   category_array: string[] = new Array();
   newCategory!: string;
+  daysFinishDefault: number = 30;
 
   constructor(public modalRef: MdbModalRef<JobCreateModalComponent>, private jobService: JobService) { }
 
   ngOnInit(): void {
-    this.category_array = Object.values(Professions);
+    this.category_array = Object.values(Categorias);
   }
 
   addCategory(newCategory: string): void {
@@ -58,7 +60,7 @@ export class JobCreateModalComponent implements OnInit {
     if (this.job.dateFinish == null) {
       this.job.dateInit = new Date()
       let date: Date = this.job.dateInit
-      date.setDate(date.getDate() + 90)
+      date.setDate(date.getDate() + this.daysFinishDefault)
       this.job.dateFinish = date
     }
     if (this.job.salary == null) {

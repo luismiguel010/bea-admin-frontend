@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { Categorias } from 'src/app/enums/categorias';
 import { Professions } from 'src/app/enums/professions';
 import { Job } from 'src/app/models/Job';
 import { JobService } from 'src/app/services/job.service';
@@ -19,7 +20,7 @@ export class JobModalComponent implements OnInit {
   constructor(public modalRef: MdbModalRef<JobModalComponent>, private jobService: JobService) { }
 
   ngOnInit(): void {
-    this.category_array = Object.values(Professions);
+    this.category_array = Object.values(Categorias);
   }
 
   addCategory(newCategory: string): void {
