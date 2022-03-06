@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { Categorias } from 'src/app/enums/categorias';
-import { Professions } from 'src/app/enums/professions';
 import { Job } from 'src/app/models/Job';
 import { JobService } from 'src/app/services/job.service';
 import swal from 'sweetalert2';
@@ -56,6 +55,9 @@ export class JobModalComponent implements OnInit {
     if (this.job.dateFinish == null) {
       swal.fire('Error al actualizar oferta', 'Especifique fecha de vencimiento', 'error')
       return
+    }
+    if (this.job.requisito == null) {
+      this.job.requisito = "No se especifica"
     }
     if (this.job.salary == null) {
       this.job.salary = "No se especifica"

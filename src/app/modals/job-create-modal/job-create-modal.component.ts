@@ -63,6 +63,9 @@ export class JobCreateModalComponent implements OnInit {
       date.setDate(date.getDate() + this.daysFinishDefault)
       this.job.dateFinish = date
     }
+    if (this.job.requisito == null) {
+      this.job.requisito = "No se especifica"
+    }
     if (this.job.salary == null) {
       this.job.salary = "No se especifica"
     }

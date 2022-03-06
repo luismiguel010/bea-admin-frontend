@@ -12,6 +12,7 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
+                        <th scope="col">Requisito</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Fecha de publicación</th>
                         <th scope="col">Fecha de vencimiento</th>
@@ -25,6 +26,7 @@
                     <tr *ngIf="job.name !='Otros'">
                         <td>{{job.name}}</td>
                         <td>{{job.description}}</td>
+                        <td>{{job.requisito}}</td>
                         <td>{{stateSpanish(job.state)}}</td>
                         <td>{{job.dateInit | date:'dd/MM/yyyy'}}</td>
                         <td>{{job.dateFinish | date:'dd/MM/yyyy'}}</td>
