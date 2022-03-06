@@ -35,7 +35,6 @@ export class JobModalComponent implements OnInit {
   }
 
   public send(): void {
-    console.log(this.job.dateFinish.toString.length)
     if (this.job.name == null) {
       swal.fire('Error al actualizar oferta', 'Campo del nombre vacío', 'error')
       return;

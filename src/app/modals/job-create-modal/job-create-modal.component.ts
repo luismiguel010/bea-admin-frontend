@@ -78,10 +78,9 @@ export class JobCreateModalComponent implements OnInit {
     this.job.idJob = uuid().toString();
     this.job.state = true;
     this.job.dateInit = new Date()
-    console.log(this.job)
     this.jobService.createJob(this.job)
       .subscribe(() => {
-        swal.fire('Creada', 'Oferta laboral creada con éxito', 'success')
+        swal.fire('Creada', 'Oferta laboral publicada con éxito', 'success')
         this.refresh();
       },
         (error) => {

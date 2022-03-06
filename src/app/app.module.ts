@@ -14,6 +14,9 @@ import { UsersComponent } from './pages/users/users.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { JobModalComponent } from './modals/job-modal/job-modal.component';
 import { JobCreateModalComponent } from './modals/job-create-modal/job-create-modal.component';
+import { CapacitacionesComponent } from './pages/capacitaciones/capacitaciones.component';
+import { CapacitacionModalComponent } from './modals/capacitacion-modal/capacitacion-modal.component';
+import { CapacitacionUpdateModalComponent } from './modals/capacitacion-update-modal/capacitacion-update-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,6 +24,7 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'users', component: UsersComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'capacitaciones', component: CapacitacionesComponent }
 ];
 
 @NgModule({
@@ -34,6 +38,9 @@ const routes: Routes = [
     FilterUserPipe,
     JobModalComponent,
     JobCreateModalComponent,
+    CapacitacionesComponent,
+    CapacitacionModalComponent,
+    CapacitacionUpdateModalComponent,
   ],
   imports: [
     BrowserModule,
