@@ -4,7 +4,6 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { JobService } from 'src/app/services/job.service';
 import swal from 'sweetalert2';
 import { v4 as uuid } from 'uuid';
-import { Professions } from 'src/app/enums/professions';
 import { Categorias } from 'src/app/enums/categorias';
 
 @Component({

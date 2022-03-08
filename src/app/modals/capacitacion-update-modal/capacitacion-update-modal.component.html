@@ -1,0 +1,111 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{ capacitacion.name }}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+</div>
+
+<div class="modal-body">
+    <form (ngSubmit)="send()">
+
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.name" name="name">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Descripción" aria-label="Descripción"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.description" name="description">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Objetivo" aria-label="Objetivo"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.objetivo" name="objetivo">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Dirigido a" aria-label="Dirigido a"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.dirigido" name="dirigido">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Contenido (Opcional)" aria-label="Contenido"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.contenido" name="contenido">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Requisitos (Opcional)" aria-label="Requisitos"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.requisitos" name="requisitos">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Facilitador (Opcional)" aria-label="Facilitador"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.facilitador" name="facilitador">
+            </div>
+
+            <div class="input-group mb-3">
+                <select class="form-select" placeholder="Estado" aria-label="Default select example"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.state" name="state">
+                    <option value=true>Activar</option>
+                    <option value=false>Desactivar</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="col-sm-4">
+                    <label>Fecha de vencimiento:</label>
+                </div>
+                <input type="datetime-local" id="dateFinish" name="dateFinish" placeholder="Fecha de vencimiento"
+                    aria-label="Date Finish" aria-describedby="basic-addon1" [(ngModel)]="capacitacion.dateFinish"
+                    name="dateFinish">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Categoría</span>
+                </div>
+                <select class="form-select" placeholder="Seleccione la categoría" aria-label="Default select example"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.categoria" name="categoria">
+                    <option *ngFor="let category of category_array">{{category}}</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Otra categoría." aria-label=""
+                    aria-describedby="basic-addon1" [(ngModel)]="newCategory" name="newCategory">
+                <p class="infoprofession">Llene este campo en caso de que su elección en la categoría sea Otro.</p>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Modalidad, presencial o virtual (Opcional)"
+                    aria-label="Modalidad" aria-describedby="basic-addon1" [(ngModel)]="capacitacion.modalidad"
+                    name="modalidad">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Correo o número de contacto" aria-label="Contactos"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.contactos" name="contactos">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Lugar de la capacitación" aria-label="Lugar"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.lugar" name="lugar">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Cupos disponibles (Opcional)" aria-label="Cupos"
+                    aria-describedby="basic-addon1" [(ngModel)]="capacitacion.cupos" name="cupos">
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)=modalRef.close()>
+                    Cerrar
+                </button>
+                <button role="button" class="btn btn-primary">Actualizar</button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

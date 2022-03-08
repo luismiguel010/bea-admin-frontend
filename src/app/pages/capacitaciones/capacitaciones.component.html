@@ -1,0 +1,48 @@
+<section id="team" class="pb-5">
+    <div>
+        <h1 class='title'><b>Capacitaciones</b>
+        </h1>
+        <h1 class='title'>
+            <button type="button" class="btn btn-primary" (click)=openModalCreateCapacitacion()>Crear oferta
+                laboral</button>
+        </h1>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" *ngFor="let capacitacion of capacitaciones">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b>Nombre:</b> {{capacitacion.name}}</li>
+                            <li class="list-group-item"><b>Descripción:</b> {{capacitacion.description}}</li>
+                            <li class="list-group-item"><b>Objetivo:</b> {{capacitacion.objetivo}}</li>
+                            <li class="list-group-item"><b>Dirigido:</b> {{capacitacion.dirigido}}</li>
+                            <li class="list-group-item"><b>Contenido:</b> {{capacitacion.contenido}}</li>
+                            <li class="list-group-item"><b>Requisitos:</b> {{capacitacion.requisitos}}</li>
+                            <li class="list-group-item"><b>Facilitador:</b> {{capacitacion.facilitador}}</li>
+                            <li class="list-group-item"><b>Estado:</b> {{stateSpanish(capacitacion.state)}}</li>
+                            <li class="list-group-item"><b>Fecha de publicación:</b> {{capacitacion.dateInit}}</li>
+                            <li class="list-group-item"><b>Fecha de vencimiento:</b> {{capacitacion.dateFinish}}</li>
+                            <li class="list-group-item"><b>Categoría:</b> {{capacitacion.categoria}}</li>
+                            <li class="list-group-item"><b>Modalidad:</b> {{capacitacion.modalidad}}</li>
+                            <li class="list-group-item"><b>Contactos de información:</b> {{capacitacion.contactos}}</li>
+                            <li class="list-group-item"><b>Lugar:</b> {{capacitacion.lugar}}</li>
+                            <li class="list-group-item"><b>Cupos:</b> {{capacitacion.cupos}}</li>
+                            <p></p>
+                            <div style="text-align:center">
+                                <button type="button" class="btn btn-edit"
+                                    (click)=openModalUpdateCapacitacion(capacitacion)>Editar</button>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</section>
