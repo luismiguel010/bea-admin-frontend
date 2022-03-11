@@ -1,6 +1,6 @@
 {
     "/bea/api": {
-        "target": "http://localhost:8090",
+        "target": "https://bea-penol.herokuapp.com",
         "logLevel": "debug",
         "secure": false,
         "changeOrigin": true

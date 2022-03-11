@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url_backend: 'http://localhost:8090/bea/api/',
+  url_backend: 'https://bea-penol.herokuapp.com/bea/api/',
 };
