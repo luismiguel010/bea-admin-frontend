@@ -17,6 +17,8 @@ import { JobCreateModalComponent } from './modals/job-create-modal/job-create-mo
 import { CapacitacionesComponent } from './pages/capacitaciones/capacitaciones.component';
 import { CapacitacionModalComponent } from './modals/capacitacion-modal/capacitacion-modal.component';
 import { CapacitacionUpdateModalComponent } from './modals/capacitacion-update-modal/capacitacion-update-modal.component';
+import { AliadosComponent } from './pages/aliados/aliados/aliados.component';
+import { AliadosModalComponent } from './modals/aliados-modal/aliados-modal/aliados-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,7 +26,8 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'users', component: UsersComponent },
   { path: 'jobs', component: JobsComponent },
-  { path: 'capacitaciones', component: CapacitacionesComponent }
+  { path: 'capacitaciones', component: CapacitacionesComponent },
+  { path: 'aliados', component: AliadosComponent }
 ];
 
 @NgModule({
@@ -41,6 +44,8 @@ const routes: Routes = [
     CapacitacionesComponent,
     CapacitacionModalComponent,
     CapacitacionUpdateModalComponent,
+    AliadosComponent,
+    AliadosModalComponent,
   ],
   imports: [
     BrowserModule,
