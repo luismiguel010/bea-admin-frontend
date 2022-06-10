@@ -1,0 +1,40 @@
+<section id="team" class="pb-5">
+    <div>
+        <h1 class='title'><b>Aliados</b>
+        </h1>
+        <h1 class='title'>
+            <button type="button" class="btn btn-primary" (click)=openModalCreateAliados()>Crear
+                aliados</button>
+        </h1>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" *ngFor="let aliado of aliados">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b>Nombre:</b> {{aliado.name}}</li>
+                            <li class="list-group-item"><b>Logo:</b>
+                                <div class="card">
+                                    <img src="https://storageaccountbeacv.blob.core.windows.net/cvs/{{aliado.logo}}"
+                                        alt="Italian Trulli">
+                                </div>
+                            </li>
+                            <div style="text-align:center">
+                                <button type="button" class="btn btn-edit"
+                                    (click)=deleteAliado(aliado.idAliado)>Eliminar</button>
+                            </div>
+                            <p></p>
+                        </ul>
+                    </div>
+                </div>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</section>
