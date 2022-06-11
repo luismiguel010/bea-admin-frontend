@@ -77,4 +77,19 @@ export class CapacitacionService {
       })
     );
   }
+
+  deleteCapacitacion(id: string) {
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    let token = this.authService.getToken();
+    if (token != null) {
+      httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
+    }
+    return this.http.delete(environment.url_backend + 'capacitacion/delete/' + id, {
+      headers: httpHeaders,
+    }).pipe(
+      catchError(e => {
+        return throwError(e)
+      })
+    )
+  }
 }

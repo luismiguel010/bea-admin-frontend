@@ -62,7 +62,7 @@ export class AliadosModalComponent implements OnInit {
                 break;
               case HttpEventType.Response:
                 console.log('User successfully created!', event.body);
-                swal.fire('Usuario registrado', 'Usuario registrado con éxito', 'success')
+                swal.fire('Aliado creado', 'Aliado creado con éxito', 'success')
                 setTimeout(() => {
                   this.progress = 0;
                 }, 1500);

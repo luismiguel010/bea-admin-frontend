@@ -33,9 +33,7 @@ export class CapacitacionesComponent implements OnInit {
     this.capacitacionService.getAllCapacitaciones()
       .subscribe(
         (capacitaciones) => {
-          console.log(capacitaciones)
           this.capacitaciones = capacitaciones;
-          console.log(this.capacitaciones)
         },
         (error) => {
           swal.fire('Error', 'Error obteniendo lista de capacitaciones', 'error')
@@ -49,6 +47,18 @@ export class CapacitacionesComponent implements OnInit {
     } else {
       return "Desactivado"
     }
+  }
+
+  deleteCapacitacion(idCapacitacion: string) {
+    this.capacitacionService.deleteCapacitacion(idCapacitacion)
+      .subscribe(
+        () => {
+          swal.fire('Eliminado', 'Se eliminó correctamente la capacitación', 'success');
+        },
+        (error) => {
+          swal.fire('Error', 'Error al eliminar capacitación', 'error')
+        }
+      )
   }
 
 }

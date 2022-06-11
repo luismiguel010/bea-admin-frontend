@@ -34,8 +34,8 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
-    this.initAcademicProfileList()
-    this.initProfessionList()
+    this.academicProfileList = Object.values(NivelAcademico);
+    this.professions = Object.values(Professions);
     this.jobService.getAllJobs()
       .subscribe(
         (jobs) => {
@@ -44,18 +44,6 @@ export class UsersComponent implements OnInit {
         (error) => {
           swal.fire('Error', 'Error obteniendo lista de empleos', 'error')
         })
-  }
-
-  initAcademicProfileList() {
-    for (var academicProfile in NivelAcademico) {
-      this.academicProfileList.push(academicProfile)
-    }
-  }
-
-  initProfessionList() {
-    for (var profession in Professions) {
-      this.professions.push(profession)
-    }
   }
 
   mapUserWithJob(users: User[]) {
