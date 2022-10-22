@@ -7,6 +7,7 @@ export class UserWithJobs {
     address!: string;
     email!: string;
     academicProfile!: string;
-    jobName!: string[];
+    jobName!: string;
     profession!: string;
 }
+

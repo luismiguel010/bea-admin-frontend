@@ -29,17 +29,19 @@ export class UsersComponent implements OnInit {
   professions: string[] = [];
   academicProfileList: string[] = [];
   jobs: Job[] = [];
+  userwithjobTest: UserWithJobs = new UserWithJobs();
 
   constructor(private userWithJobsService: UserwithjobsService, private cvService: CvService,
     private blobService: BlobService, private jobService: JobService) { }
 
   ngOnInit(): void {
+
     this.academicProfileList = Object.values(NivelAcademico);
     this.professions = Object.values(Professions);
     this.userWithJobsService.get_all_user_with_jobs()
       .subscribe(
         (userjobs) => {
-          this.usersWithJobs = userjobs;
+          this.usersWithJobs = userjobs
         },
         (error) => {
           swal.fire('Error', 'Error obteniendo lista de usuarios', 'error')
