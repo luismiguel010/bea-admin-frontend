@@ -12,6 +12,7 @@ import { Job } from 'src/app/models/Job';
 import { Observable, Subject, throwError } from 'rxjs';
 import { NivelAcademico } from 'src/app/enums/nivel-academico';
 import { Professions } from 'src/app/enums/professions';
+import { UserwithjobsService } from 'src/app/services/userwithjobs.service';
 
 @Component({
   selector: 'app-users',
@@ -29,13 +30,21 @@ export class UsersComponent implements OnInit {
   academicProfileList: string[] = [];
   jobs: Job[] = [];
 
-  constructor(private userService: UsersService, private cvService: CvService,
+  constructor(private userWithJobsService: UserwithjobsService, private cvService: CvService,
     private blobService: BlobService, private jobService: JobService) { }
 
   ngOnInit(): void {
-    this.getAllUsers();
     this.academicProfileList = Object.values(NivelAcademico);
     this.professions = Object.values(Professions);
+    this.userWithJobsService.get_all_user_with_jobs()
+      .subscribe(
+        (userjobs) => {
+          this.usersWithJobs = userjobs;
+        },
+        (error) => {
+          swal.fire('Error', 'Error obteniendo lista de usuarios', 'error')
+        }
+      )
     this.jobService.getAllJobs()
       .subscribe(
         (jobs) => {
@@ -44,47 +53,6 @@ export class UsersComponent implements OnInit {
         (error) => {
           swal.fire('Error', 'Error obteniendo lista de empleos', 'error')
         })
-  }
-
-  mapUserWithJob(users: User[]) {
-    users.forEach(user => {
-      var _userWithJobs = new UserWithJobs();
-      _userWithJobs.idUser = user.idUser;
-      _userWithJobs.names = user.names;
-      _userWithJobs.lastnames = user.lastnames;
-      _userWithJobs.identificationCard = user.identificationCard;
-      _userWithJobs.email = user.email;
-      _userWithJobs.address = user.address;
-      _userWithJobs.academicProfile = user.academicProfile;
-      _userWithJobs.profession = user.profession;
-      _userWithJobs.phone = user.phone;
-      _userWithJobs.jobName = [];
-      this.cvService.getCvByIdUser(user.idUser)
-        .subscribe(cv => {
-          this.cv = cv
-          this.cv.jobCvList.forEach(jobcv => {
-            this.jobService.getJobById(jobcv.idJob)
-              .subscribe(job => {
-                this.job = job
-                _userWithJobs.jobName.push(this.job.name)
-              })
-            this.usersWithJobs.push(_userWithJobs)
-          })
-        })
-    });
-  }
-
-  getAllUsers() {
-    this.userService.get_all_user()
-      .subscribe(
-        (users) => {
-          this.users = users
-          this.mapUserWithJob(this.users)
-        },
-        (error) => {
-          swal.fire('Error', 'Error obteniendo usuarios', 'error')
-        }
-      )
   }
 
   downloadCvByIdUser(idUser: string): void {
@@ -96,30 +64,6 @@ export class UsersComponent implements OnInit {
         },
         (error) => {
           swal.fire('Error', 'Error obteniendo hoja de vida, comuníquese con el desarrollador', 'error')
-        }
-      )
-  }
-
-  getCvByIdUser(idUser: string) {
-    this.cvService.getCvByIdUser(idUser)
-      .subscribe(
-        (cv) => {
-          this.cv = cv
-        },
-        (error) => {
-          swal.fire('Error', 'Error obteniendo la hojas de vida, comuníquese con el desarrollador', 'error')
-        }
-      )
-  }
-
-  getNameJob(idJob: string): void {
-    this.jobService.getJobById(idJob)
-      .subscribe(
-        (job) => {
-          this.job = job;
-        },
-        (error) => {
-          swal.fire('Error', 'Error obteniendo trabajos, comuníquese con el desarrollador', 'error')
         }
       )
   }
